@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: user-service
+  profiles:
+    active: test
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: false
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: alpha
+  default-consumes-media-type: application/json
+  default-produces-media-type: application/json
+  paths-to-match: "/**"
+logging:
+  level:
+    org.hibernate.SQL: INFO
+    org.hibernate.orm.jdbc.bind: INFO
+    root: INFO
+management:
+  endpoints:
+    web:
+      exposure:
+        include: metrics, prometheus
+metrics:
+  export:
+    prometheus:
+     enabled: true
